@@ -1,0 +1,150 @@
+.ops-tabs {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0;
+}
+.ops-tab {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all var(--transition-fast);
+}
+.ops-tab:hover {
+  color: var(--text-primary);
+}
+.ops-tab.active {
+  color: var(--brand-primary-light);
+  border-bottom-color: var(--brand-primary);
+}
+
+/* ── List header toolbar ── */
+.ops-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.ops-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.ops-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ── Form view ── */
+.ops-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+.ops-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.ops-form-header h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+.ops-form-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+.ops-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+.ops-form-section {
+  margin-top: var(--space-4);
+}
+.ops-form-section h3 {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  color: var(--text-secondary);
+}
+
+/* ── Product lines table ── */
+.lines-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-3);
+}
+.lines-table th {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-default);
+}
+.lines-table td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.lines-table input, .lines-table select {
+  min-width: 80px;
+}
+
+.line-remove {
+  background: none;
+  border: none;
+  color: var(--status-danger);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.line-remove:hover {
+  background: var(--status-danger-bg);
+}
+
+.ops-status-bar {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+}
+.status-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.status-step.current {
+  background: var(--brand-primary);
+  color: #fff;
+}
+.status-step.completed {
+  background: var(--status-success-bg);
+  color: var(--status-success);
+}
+.status-step-arrow {
+  color: var(--text-muted);
+  font-size: 12px;
+}
