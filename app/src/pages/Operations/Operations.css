@@ -17,10 +17,13 @@
 }
 .ops-tab:hover {
   color: var(--text-primary);
+  background: rgba(108,92,231,0.04);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 .ops-tab.active {
   color: var(--brand-primary-light);
   border-bottom-color: var(--brand-primary);
+  box-shadow: 0 2px 8px rgba(108,92,231,0.15);
 }
 
 /* ── List header toolbar ── */
@@ -77,6 +80,16 @@
   font-weight: 700;
   margin-bottom: var(--space-3);
   color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.ops-form-section h3::before {
+  content: '';
+  width: 3px;
+  height: 16px;
+  background: var(--brand-primary);
+  border-radius: var(--radius-full);
 }
 
 /* ── Product lines table ── */
@@ -93,7 +106,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: 2px solid rgba(108,92,231,0.1);
 }
 .lines-table td {
   padding: var(--space-2) var(--space-3);
@@ -102,6 +115,12 @@
 .lines-table input, .lines-table select {
   min-width: 80px;
 }
+.lines-table tbody tr {
+  transition: background var(--transition-fast);
+}
+.lines-table tbody tr:hover {
+  background: rgba(108,92,231,0.04);
+}
 
 .line-remove {
   background: none;
@@ -109,20 +128,22 @@
   color: var(--status-danger);
   cursor: pointer;
   font-size: 18px;
-  padding: 4px;
+  padding: 4px 8px;
   border-radius: var(--radius-sm);
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 .line-remove:hover {
   background: var(--status-danger-bg);
+  transform: scale(1.15);
 }
 
 .ops-status-bar {
   display: flex;
   gap: var(--space-3);
-  padding: var(--space-4);
-  background: var(--bg-elevated);
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, var(--bg-elevated), rgba(108,92,231,0.03));
   border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
 }
 .status-step {
   display: flex;
@@ -135,14 +156,17 @@
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
 }
 .status-step.current {
-  background: var(--brand-primary);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
   color: #fff;
+  box-shadow: 0 2px 10px rgba(108,92,231,0.3);
 }
 .status-step.completed {
   background: var(--status-success-bg);
   color: var(--status-success);
+  border: 1px solid rgba(0,184,148,0.2);
 }
 .status-step-arrow {
   color: var(--text-muted);

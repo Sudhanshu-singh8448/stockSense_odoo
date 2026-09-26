@@ -111,6 +111,15 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+          {stats.pendingReceipts > 0 && (
+            <div className="ops-progress">
+              <div className="ops-progress-bar">
+                {stats.receiptLate > 0 && <div className="ops-progress-seg seg-red" style={{ width: `${(stats.receiptLate / stats.pendingReceipts) * 100}%` }} />}
+                {stats.receiptWaiting > 0 && <div className="ops-progress-seg seg-yellow" style={{ width: `${(stats.receiptWaiting / stats.pendingReceipts) * 100}%` }} />}
+                {stats.receiptReady > 0 && <div className="ops-progress-seg seg-blue" style={{ width: `${(stats.receiptReady / stats.pendingReceipts) * 100}%` }} />}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Delivery Card */}
@@ -144,6 +153,15 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+          {stats.pendingDeliveries > 0 && (
+            <div className="ops-progress">
+              <div className="ops-progress-bar">
+                {stats.deliveryLate > 0 && <div className="ops-progress-seg seg-red" style={{ width: `${(stats.deliveryLate / stats.pendingDeliveries) * 100}%` }} />}
+                {stats.deliveryWaiting > 0 && <div className="ops-progress-seg seg-yellow" style={{ width: `${(stats.deliveryWaiting / stats.pendingDeliveries) * 100}%` }} />}
+                {stats.deliveryReady > 0 && <div className="ops-progress-seg seg-blue" style={{ width: `${(stats.deliveryReady / stats.pendingDeliveries) * 100}%` }} />}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

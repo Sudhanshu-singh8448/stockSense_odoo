@@ -1,24 +1,42 @@
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: var(--space-5);
 }
 .product-card {
   cursor: pointer;
   transition: all var(--transition-base);
   overflow: hidden;
+  position: relative;
 }
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  background: linear-gradient(135deg, rgba(108,92,231,0.06), rgba(0,206,201,0.04));
+  z-index: 0;
+}
+.product-card:hover::before { opacity: 1; }
 .product-card:hover {
   border-color: var(--brand-primary);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(108,92,231,0.12), 0 0 0 1px rgba(108,92,231,0.1);
 }
 .product-card-img {
-  height: 140px;
-  background: var(--bg-elevated);
+  height: 150px;
+  background: linear-gradient(135deg, var(--bg-elevated), rgba(108,92,231,0.04));
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle animated gradient on hover */
+.product-card:hover .product-card-img {
+  background: linear-gradient(135deg, rgba(108,92,231,0.08), rgba(0,206,201,0.06));
 }
 .product-card-img img {
   width: 100%;
@@ -26,33 +44,85 @@
   object-fit: cover;
 }
 .product-card-placeholder {
-  font-size: 3rem;
-  opacity: 0.25;
+  font-size: 3.2rem;
+  opacity: 0.2;
+  transition: all var(--transition-base);
+}
+.product-card:hover .product-card-placeholder {
+  opacity: 0.35;
+  transform: scale(1.1);
 }
 .product-card-body {
-  padding: var(--space-4);
+  padding: var(--space-4) var(--space-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  position: relative;
+  z-index: 1;
 }
 .product-card-body h4 {
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1.3;
 }
 .product-card-sku {
   font-size: var(--font-size-xs);
   color: var(--text-muted);
-  font-family: monospace;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  letter-spacing: 0.04em;
+  background: rgba(255,255,255,0.03);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  width: fit-content;
 }
 .product-card-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
 }
 .product-card-price {
-  font-size: var(--font-size-md);
-  font-weight: 700;
-  color: var(--brand-accent);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  background: linear-gradient(135deg, #00CEC9, #55EFC4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
+/* ── Enhanced product table ── */
+.products-list-table .data-table tbody tr {
+  transition: all var(--transition-fast);
+}
+.products-list-table .data-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.012);
+}
+.products-list-table .data-table tbody tr:hover {
+  background: rgba(108,92,231,0.06);
+}
+
+/* Stock level mini bar */
+.stock-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.stock-bar {
+  width: 40px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--bg-input);
+  overflow: hidden;
+}
+.stock-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+.stock-bar-fill.high { background: var(--status-success); }
+.stock-bar-fill.low { background: var(--status-warning); }
+.stock-bar-fill.out { background: var(--status-danger); }

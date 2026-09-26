@@ -56,6 +56,18 @@ export default function AuthPage() {
       <div className="auth-bg-blob blob-2" />
       <div className="auth-bg-blob blob-3" />
 
+      {/* floating inventory icons */}
+      <div className="auth-floating-icons">
+        <span className="auth-float-icon">📦</span>
+        <span className="auth-float-icon">🏭</span>
+        <span className="auth-float-icon">📊</span>
+        <span className="auth-float-icon">🚚</span>
+        <span className="auth-float-icon">📋</span>
+        <span className="auth-float-icon">⚙</span>
+        <span className="auth-float-icon">📥</span>
+        <span className="auth-float-icon">📤</span>
+      </div>
+
       <div className="auth-container glass-card">
         {/* Logo */}
         <div className="auth-logo">

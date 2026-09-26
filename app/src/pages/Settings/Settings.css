@@ -17,17 +17,35 @@
   transition: all var(--transition-fast);
   font-family: var(--font-family);
 }
-.settings-tab:hover { color: var(--text-primary); }
+.settings-tab:hover {
+  color: var(--text-primary);
+  background: rgba(108,92,231,0.04);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
 .settings-tab.active {
   color: var(--brand-primary-light);
   border-bottom-color: var(--brand-primary);
+  box-shadow: 0 2px 8px rgba(108,92,231,0.15);
 }
 
 .settings-form {
   padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+/* Decorative accent */
+.settings-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--brand-primary), var(--brand-accent));
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 .settings-form h3 {
   font-size: var(--font-size-lg);
   font-weight: 700;
   margin-bottom: var(--space-4);
+  padding-left: var(--space-2);
 }
